@@ -6,6 +6,7 @@ $(function () {
     attachQuantityListener();
 });
 
+
 function attachRemoveListener() {
     $('.save-or-remove').click(function () {
         setTimeout(function () {
@@ -13,6 +14,7 @@ function attachRemoveListener() {
         }, 3500);
     });
 }
+
 
 function attachQuantityListener() {
     $('#div_shoppingCart').on('change', function () {
@@ -60,7 +62,10 @@ function handleData(euroExchangeRate, usdExchangeRate) {
     var sum = customsDuty + getTotalsPrice();
     $('#shopping-cart').find('.shopping-cart-row .summary-section .summary-actions')
         .before(createHtmlForCustomsDuty(customsDuty.toFixed(2), sum.toFixed(2)));
+    console.log(`Курс доллара ${usdExchangeRate.toFixed(3)}`);
+    console.log(`Курс евро ${euroExchangeRate.toFixed(3)}`);
 }
+
 
 function createHtmlForCustomsDuty(customsDuty, sum) {
     var text =
@@ -79,10 +84,12 @@ function createHtmlForCustomsDuty(customsDuty, sum) {
     return $(text);
 }
 
+
 function getOrderPrice() {
     var text = $('#pSubtotal').text();
     return parseFloat(text.slice(1))
 }
+
 
 function getTotalsPrice() {
     var text = $('#shopping-cart').find('.shopping-cart-row .summary-section .totals.grand .price').text();

@@ -1,8 +1,8 @@
 {
-  "name": "iherb Belarus customs",
+  "name": "iHerb Belarus customs",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
+  "description": "Подсчитывает стоимость таможенной пошлины для посылки в РБ.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
