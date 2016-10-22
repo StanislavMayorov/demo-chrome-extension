@@ -1,6 +1,4 @@
 "use strict";
-//145 usd
-//292 euro
 
 $(function () {
     getExchangeRatesFromStorage();
@@ -11,7 +9,6 @@ $(function () {
 function attachRemoveListener() {
     $('.save-or-remove').click(function () {
         setTimeout(function () {
-            debugger;
             getExchangeRatesFromStorage();
         }, 3500);
     });
@@ -20,15 +17,15 @@ function attachRemoveListener() {
 function attachQuantityListener() {
     $('#div_shoppingCart').on('change', function () {
         setTimeout(function () {
-            debugger;
             getExchangeRatesFromStorage();
             attachRemoveListener();
-        }, 700);
+        }, 1500);
     });
 }
 
+
 function calculateCustomsDuty(euroExchangeRate, usdExchangeRate, orderPrice) {
-    //(45 - 22* 1.1) * 0.3 + оформление + почтовый сбор.
+    //(45 - 22* 1.1) * 0.3 + customs Registration + post Service.
     const customsRegistrationFeeEuro = 5;
     const postServiceRub = 5.2;
     const customsDutyFreeLimitEuro = 22;
@@ -45,9 +42,11 @@ function calculateCustomsDuty(euroExchangeRate, usdExchangeRate, orderPrice) {
 
 }
 
+
 function getExchangeRatesFromStorage() {
     chrome.storage.local.get(setExchangeRates);
 }
+
 
 function setExchangeRates(items) {
     var euroExchangeRate = items.euroExchangeRate;
@@ -89,26 +88,3 @@ function getTotalsPrice() {
     var text = $('#shopping-cart').find('.shopping-cart-row .summary-section .totals.grand .price').text();
     return parseFloat(text.slice(1))
 }
-
-// function setExchangeRates(data) {
-//     debugger;
-//     for (let element of data) {
-//         var a = 3;
-//         switch (element['Cur_ID']) {
-//             case 292:
-//                 var euro = element['Cur_OfficialRate'];
-//                 break;
-//             case 145:
-//                 var usd = element['Cur_OfficialRate'];
-//                 break;
-//         }
-//     }
-//     debugger;
-//     handleData(euro, usd);
-// }
-//
-//
-// function setDefaultExchangeRates() {
-//     console.error('Курс из нац банка не подгружен!');
-//     handleData(2.2, 2);
-// }

@@ -3,14 +3,12 @@
 updateExchangeRates();
 
 function updateExchangeRates() {
-    debugger;
     sendRequestForExchangeRates()
 }
 
 function sendRequestForExchangeRates() {
     var today = new Date();
     var dateString = today.toISOString().substring(0, 10);
-    debugger;
     $.ajax({
         url: `https://www.nbrb.by/API/ExRates/Rates?onDate=${dateString}&Periodicity=0`,
         type: "GET",
@@ -20,7 +18,6 @@ function sendRequestForExchangeRates() {
 }
 
 function findExchangeRates(data) {
-    debugger;
     for (let element of data) {
         switch (element['Cur_ID']) {
             case 292:
@@ -31,7 +28,6 @@ function findExchangeRates(data) {
                 break;
         }
     }
-    debugger;
     saveExchangeRate(euro, usd);
 }
 
