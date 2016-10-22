@@ -44,5 +44,5 @@ function saveExchangeRate(euro, usd) {
 }
 
 function error() {
-    console.error('Курс нац. банка не подгружен!');
+    console.error('Курс нац. банка не загружен!');
 }
