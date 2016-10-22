@@ -4,11 +4,10 @@ updateExchangeRates();
 
 function updateExchangeRates() {
     debugger;
-    getExchangeRates()
+    sendRequestForExchangeRates()
 }
 
-
-function getExchangeRates() {
+function sendRequestForExchangeRates() {
     var today = new Date();
     var dateString = today.toISOString().substring(0, 10);
     debugger;
@@ -37,7 +36,7 @@ function findExchangeRates(data) {
 }
 
 function saveExchangeRate(euro, usd) {
-    if (euroExchangeRate === undefined || usdExchangeRate === undefined) {
+    if (euro === undefined || usd === undefined) {
         return undefined
     }
     var obj = {
@@ -45,13 +44,9 @@ function saveExchangeRate(euro, usd) {
         usdExchangeRate: usd
     };
     chrome.storage.local.set(obj);
-    // chrome.storage.local.set({
-    //         euroExchangeRate2: euroExchangeRate,
-    //         usdExchangeRate2: usdExchangeRate
-    //     });
+    console.log('Курс нац. банка сохранён!')
 }
 
 function error() {
-    console.error('Курс из нац банка не подгружен!');
-    //handleData(2.2, 2);
+    console.error('Курс нац. банка не подгружен!');
 }
