@@ -10,7 +10,8 @@
   },
   "permissions": [
     "http://*/",
-    "https://*/"
+    "https://*/",
+    "storage"
   ],
   "content_scripts": [
     {
@@ -25,5 +26,11 @@
         "src/inject.js"
       ]
     }
-  ]
+  ],
+  "background": {
+    "scripts": [
+      "src/vendors/jquery-2.2.0.js",
+      "src/background.js"
+    ]
+  }
 }
