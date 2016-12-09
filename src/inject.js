@@ -86,12 +86,12 @@ function createHtmlForCustomsDuty(customsDuty, sum) {
 
 
 function getOrderPrice() {
-    var text = $('#pSubtotal').text();
+    var text = $('#sub-total').text();
     return parseFloat(text.slice(1))
 }
 
 
 function getTotalsPrice() {
-    var text = $('#shopping-cart').find('.shopping-cart-row .summary-section .totals.grand .price').text();
+    var text = $('#grand-total').text();
     return parseFloat(text.slice(1))
 }
